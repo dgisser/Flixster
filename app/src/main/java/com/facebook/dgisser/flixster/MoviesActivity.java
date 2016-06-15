@@ -13,7 +13,7 @@ public class MoviesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
         // Retrieve movies
-        ArrayList<Movie> movies = Movie.getFakeMovies();
+        ArrayList<Movie> movies = Movie.getMovies(this.getApplicationContext());
         // Generate ListView to populate
         ListView lvMovies = (ListView) findViewById(R.id.lvMovies);
         // Create ArrayAdapter
