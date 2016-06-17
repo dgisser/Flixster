@@ -26,13 +26,19 @@ public class Movie {
         return overview;
     }
 
+    public String getBackdropPath() {
+        return String.format("http://image.tmdb.org/t/p/w500%s",backdropPath);
+    }
+
     String originalTitle;
     String overview;
+    String backdropPath;
 
     public Movie(JSONObject jsonObject) throws JSONException {
         this.posterPath = jsonObject.getString("poster_path");
         this.originalTitle = jsonObject.getString("original_title");
         this.overview = jsonObject.getString("overview");
+        this.backdropPath = jsonObject.getString("backdrop_path");
     }
 
     public static ArrayList<Movie> fromJSONArray (JSONArray array) {

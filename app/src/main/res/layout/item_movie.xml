@@ -19,17 +19,21 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/tvTitle"
-        android:layout_above="@+id/tvOverview"
+        android:textColor="#FFFFFF"
+        android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ivPoster"
-        android:layout_toEndOf="@+id/ivPoster" />
+        android:layout_toEndOf="@+id/ivPoster"
+        android:layout_margin="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
+        android:textColor="#CCCCCC"
         android:id="@+id/tvOverview"
-        android:layout_alignBottom="@+id/ivPoster"
+        android:layout_below="@+id/tvTitle"
         android:layout_toRightOf="@+id/ivPoster"
-        android:layout_toEndOf="@+id/ivPoster" />
+        android:layout_toEndOf="@+id/ivPoster"
+        android:layout_margin="10dp" />
 
 </RelativeLayout>

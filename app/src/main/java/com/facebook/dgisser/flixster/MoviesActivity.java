@@ -1,7 +1,10 @@
 package com.facebook.dgisser.flixster;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.facebook.dgisser.flixster.adapters.MovieArrayAdapter;
@@ -55,6 +58,18 @@ public class MoviesActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    private void setupListViewListener() {
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(MoviesActivity.this, DetailsActivity.class);
+                i.putExtra("word",movies.get(position).toString());
+                startActivity(i);
+            }
+        });
 
     }
 }
