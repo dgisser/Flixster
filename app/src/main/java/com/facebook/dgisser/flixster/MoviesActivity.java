@@ -3,6 +3,7 @@ package com.facebook.dgisser.flixster;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -36,6 +37,7 @@ public class MoviesActivity extends AppCompatActivity {
         // Retrieve movies
         String apiKey = getResources().getString(R.string.moviedb_api_key);
         String url = String.format("https://api.themoviedb.org/3/movie/now_playing?api_key=%s",apiKey);
+        setupListViewListener();
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(url, new JsonHttpResponseHandler(){
@@ -65,8 +67,12 @@ public class MoviesActivity extends AppCompatActivity {
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("moviesActivity","hit dis");
                 Intent i = new Intent(MoviesActivity.this, DetailsActivity.class);
-                i.putExtra("word",movies.get(position).toString());
+                i.putExtra("overview",movies.get(position).getOverview());
+                i.putExtra("popularity",movies.get(position).getPopularity());
+                i.putExtra("vote_average",movies.get(position).getVote_average());
+                i.putExtra("originalTitle",movies.get(position).getOriginalTitle());
                 startActivity(i);
             }
         });

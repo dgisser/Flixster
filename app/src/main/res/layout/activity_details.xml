@@ -1,31 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#000000">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/tvTitle" />
+        android:id="@+id/tvTitle"
+        android:layout_margin="10dp"
+        android:textColor="#FFFFFF" />
 
     <RatingBar
-        android:layout_width="261dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rbMovie"
-        android:numStars="5"
+        android:numStars="10"
+        style="?android:attr/ratingBarStyleSmall"
+        android:isIndicator="true"
+        android:stepSize="0.1"
         android:layout_below="@+id/tvTitle"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#2e2e2e" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/tvPopularity"
+        android:textColor="#FFFFFF"
         android:layout_below="@+id/rbMovie"
-        android:layout_alignRight="@+id/rbMovie"
-        android:layout_alignEnd="@+id/rbMovie" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,5 +44,7 @@
         android:id="@+id/tvDescription"
         android:layout_below="@+id/tvPopularity"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:textColor="#FFFFFF" />
 </RelativeLayout>

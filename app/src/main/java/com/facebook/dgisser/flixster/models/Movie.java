@@ -1,7 +1,5 @@
 package com.facebook.dgisser.flixster.models;
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,20 +28,31 @@ public class Movie {
         return String.format("http://image.tmdb.org/t/p/w500%s",backdropPath);
     }
 
+    public Integer getPopularity() {
+        return popularity;
+    }
+
+    public Integer getVote_average() {
+        return vote_average;
+    }
+
     String originalTitle;
     String overview;
     String backdropPath;
+    Integer popularity;
+    Integer vote_average;
 
     public Movie(JSONObject jsonObject) throws JSONException {
         this.posterPath = jsonObject.getString("poster_path");
         this.originalTitle = jsonObject.getString("original_title");
         this.overview = jsonObject.getString("overview");
         this.backdropPath = jsonObject.getString("backdrop_path");
+        this.popularity = (int) jsonObject.getDouble("popularity");
+        this.vote_average = (int) jsonObject.getDouble("vote_average");
     }
 
     public static ArrayList<Movie> fromJSONArray (JSONArray array) {
         ArrayList<Movie> results = new ArrayList<>();
-        Log.d("Movie",String.format("hi %d",array.length()));
         for (int x = 0; x < array.length(); x++) {
             try {
                 results.add(new Movie(array.getJSONObject(x)));
